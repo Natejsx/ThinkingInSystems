@@ -1,0 +1,37 @@
+[
+  {
+    "id": "wias-1",
+    "front": "What are the four components of the universal system model?",
+    "back": "**Inputs** (what enters the system), **Processing** (the transformation applied), **Outputs** (what leaves), and **Constraints** (what limits throughput or latency). Every computer system has all four."
+  },
+  {
+    "id": "wias-2",
+    "front": "What is a bottleneck in systems terminology?",
+    "back": "The single constraint that limits the throughput of the entire system. Improving any other stage does not improve overall output. The bottleneck is the slowest step in the pipeline that all work must pass through."
+  },
+  {
+    "id": "wias-3",
+    "front": "What happens when arrival rate exceeds service rate?",
+    "back": "A queue forms. If the queue is unbounded it grows without limit (capacity problem). If it is bounded the system starts dropping inputs (correctness problem). Latency rises as items wait longer in the queue before being processed."
+  },
+  {
+    "id": "wias-4",
+    "front": "Why does adding more parallel workers not always reduce latency?",
+    "back": "If the bottleneck is a shared resource (lock, connection pool, shared cache line), more workers increase contention rather than parallelism. Amdahl's Law: total speedup is limited by the fraction of work that is sequential or serialized."
+  },
+  {
+    "id": "wias-5",
+    "front": "What is the correct order of operations when optimizing a system?",
+    "back": "1. Measure to find the current bottleneck. 2. Fix only the bottleneck. 3. Measure again (the bottleneck will have moved). Optimizing anything other than the current constraint wastes effort and can make the system worse."
+  },
+  {
+    "id": "wias-6",
+    "front": "Name four common bottlenecks in software systems.",
+    "back": "**CPU saturation** (all cores at 100%), **memory bandwidth** (cache misses dominate), **I/O capacity** (disk or network saturated), **lock contention** (threads serialized behind a shared lock). Also common: connection pool exhaustion, GC pressure."
+  },
+  {
+    "id": "wias-7",
+    "front": "Why is the bottleneck not always inside your own process?",
+    "back": "Every system is embedded in a larger system. Slow downstream dependencies raise your latency. Bursts from upstream callers overflow your queue. The constraint can live at any point in the end-to-end call chain, not just in your code."
+  }
+]
