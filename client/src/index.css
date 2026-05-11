@@ -298,7 +298,7 @@
 .light-beam {
   position: absolute;
   bottom: 0;
-  height: 35%;
+  height: 65%;
   background: linear-gradient(to top, var(--aurora-light), transparent);
   border-radius: 50% 50% 0 0;
   animation-name: rise, fade;

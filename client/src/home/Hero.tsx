@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import { getAllLessons, buildNavTree } from '@/lib/content';
 import { meta as lessonMetaRaw, quizFiles } from 'virtual:lesson-meta';
+import BackgroundScene from '@/components/ui/aurora-section-hero';
 
 const TERMINAL_LINES = [
   { prompt: '$', text: ' understand what the system is doing' },
@@ -22,55 +23,9 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 py-20">
-      <div className="landing-grid-bg pointer-events-none absolute inset-0" />
+      <BackgroundScene beamCount={60} />
+      <div className="landing-grid-bg pointer-events-none absolute inset-0 opacity-40" />
       <div className="landing-radial-fade pointer-events-none absolute inset-0" />
-
-      {/* Faint background symbols */}
-      <div className="pointer-events-none absolute inset-0 select-none overflow-hidden">
-        {(
-          [
-            { sym: '→',  top:  4, left:  3, px: 48, alpha: 0.06, rot: -12 },
-            { sym: '∑',  top:  8, left: 18, px: 36, alpha: 0.04, rot:   8 },
-            { sym: 'λ',  top:  3, left: 42, px: 64, alpha: 0.03, rot:  -6 },
-            { sym: 'O',  top:  6, left: 62, px: 48, alpha: 0.04, rot:  15 },
-            { sym: '/',  top:  2, left: 80, px: 56, alpha: 0.05, rot: -20 },
-            { sym: 'n',  top: 12, left: 92, px: 36, alpha: 0.04, rot:  10 },
-            { sym: '#',  top: 22, left:  7, px: 80, alpha: 0.03, rot:  18 },
-            { sym: '~',  top: 28, left: 30, px: 36, alpha: 0.04, rot:  -9 },
-            { sym: '[',  top: 32, left: 52, px: 56, alpha: 0.03, rot:   5 },
-            { sym: '%',  top: 25, left: 72, px: 48, alpha: 0.05, rot: -14 },
-            { sym: '|',  top: 18, left: 88, px: 64, alpha: 0.04, rot:   3 },
-            { sym: 'τ',  top: 45, left:  2, px: 48, alpha: 0.05, rot:  22 },
-            { sym: '&',  top: 50, left: 20, px: 36, alpha: 0.03, rot:  -7 },
-            { sym: '_',  top: 55, left: 45, px: 56, alpha: 0.04, rot:  12 },
-            { sym: '→',  top: 48, left: 65, px: 48, alpha: 0.03, rot: -18 },
-            { sym: '}',  top: 42, left: 84, px: 56, alpha: 0.05, rot:   9 },
-            { sym: '1',  top: 62, left:  8, px: 64, alpha: 0.03, rot: -15 },
-            { sym: 'μ',  top: 68, left: 28, px: 48, alpha: 0.04, rot:  20 },
-            { sym: '$',  top: 72, left: 55, px: 36, alpha: 0.05, rot:  -8 },
-            { sym: '<',  top: 65, left: 76, px: 56, alpha: 0.03, rot:  14 },
-            { sym: '∞',  top: 58, left: 94, px: 48, alpha: 0.04, rot: -22 },
-            { sym: '{',  top: 80, left:  1, px: 48, alpha: 0.04, rot:  11 },
-            { sym: '#',  top: 82, left: 38, px: 56, alpha: 0.03, rot:  -5 },
-            { sym: '~',  top: 78, left: 68, px: 64, alpha: 0.04, rot:  17 },
-            { sym: 'O',  top: 85, left: 88, px: 48, alpha: 0.05, rot: -13 },
-          ] as const
-        ).map(({ sym, top, left, px, alpha, rot }, i) => (
-          <span
-            key={i}
-            className="absolute font-mono font-bold"
-            style={{
-              top: `${top}%`,
-              left: `${left}%`,
-              fontSize: `${px}px`,
-              color: `hsl(38 92% 50% / ${alpha})`,
-              transform: `rotate(${rot}deg)`,
-            }}
-          >
-            {sym}
-          </span>
-        ))}
-      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
