@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import { getAllLessons, buildNavTree } from '@/lib/content';
 import { meta as lessonMetaRaw, quizFiles } from 'virtual:lesson-meta';
-import BackgroundScene from '@/components/ui/aurora-section-hero';
+import ParticleCanvas from '@/components/ui/aether-flow-hero';
 
 const TERMINAL_LINES = [
   { prompt: '$', text: ' understand what the system is doing' },
@@ -23,9 +23,8 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 py-20">
-      <BackgroundScene beamCount={60} />
-      <div className="landing-grid-bg pointer-events-none absolute inset-0 opacity-40" />
-      <div className="landing-radial-fade pointer-events-none absolute inset-0" />
+      <ParticleCanvas />
+      <div className="landing-radial-fade pointer-events-none absolute inset-0 z-[1]" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
